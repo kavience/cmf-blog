@@ -1,0 +1,38 @@
+.blog-article{
+    padding:0px;
+    margin-top:2.5rem;
+    margin-bottom:12rem;
+    font-size:1.5rem;
+}
+.blog-article-title{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.blog-article-comments{
+    margin-top: 5rem;
+}
+.article-comment-name{
+    color: #424242;
+    display: block;
+}
+.article-comment-date{
+    color: #aaaaaa;
+    font-size: 1.2rem;
+}
+.article-comment-content{
+    width: 100%;
+}
+.article-send-comment{
+    width: 90%;
+}
+.article-send-comment textarea{
+    width: 100%;
+}
+.article-send-comment .article-comment-input{
+    width: 100%;
+    height: auto;
+}
+.article-send-comment .comment-now{
+    display: block;
+    margin-top: 2rem;
+}

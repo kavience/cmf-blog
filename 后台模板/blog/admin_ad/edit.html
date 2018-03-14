@@ -1,0 +1,77 @@
+<include file="public@header"/>
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li ><a href="{:url('AdminAd/adSetting')}">广告管理</a></li>
+        <li ><a href="{:url('AdminAd/add')}">添加广告</a></li>
+        <li class="active"><a href="javascript:;">修改广告</a></li>
+    </ul>
+    <form action="{:url('AdminAd/editPost')}" method="post" class="form-horizontal margin-top-20 js-ajax-form" id="ad-form">
+        <div class="row">
+            <div class="col-md-9">
+                <input type="hidden" name="id" value="{$ad['id']}">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>广告名称<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="name" id="title" required placeholder="请输入标题" value="{$ad['name']}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>链接<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="link" placeholder="请输入广告链接地址" value="{$ad['link']}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>排序值</th>
+                        <td><input class="form-control" type="text" name="list_order" value="{$ad['list_order']}"></td>
+                    </tr>
+                    <tr>
+                        <td>广告图片</td>
+                        <td>
+                            <div style="text-align: center;">
+                                <input type="hidden" name="img_link" id="thumbnail" value="{$ad['img_link']}">
+                                <a href="javascript:uploadOneImage('图片上传','#thumbnail');">
+                                    <img src="__ROOT__/upload/{$ad['img_link']}"
+                                         id="thumbnail-preview"
+                                         width="135" style="cursor: pointer"/>
+                                </a>
+                                <input type="button" class="btn btn-sm btn-cancel-thumbnail" value="取消图片">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">修改广告</button>
+                        <a class="btn btn-default" href="{:url('AdminAd/adSetting')}">返回</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+<script type="text/javascript">
+    //编辑器路径定义
+    var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('.btn-cancel-thumbnail').click(function () {
+            $('#thumbnail-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+            $('#thumbnail').val('');
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="">站点信息</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-6">
+            <form action="{:url('AdminWebsite/editPost')}" id="blog-nav-form" class="js-ajax-form"  method="post">
+                <input type="hidden" name="id" value="{$websiteData['id']}">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+                        <div class="form-group">
+                            <label for="input-name"><span class="form-required">*</span>站点名称</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-name" name="name" value="{$websiteData['blog_name']}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-link"><span class="form-required">*</span>站点副标题</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-link" name="subtitle" value="{$websiteData['blog_subtitle']}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-name"><span class="form-required">*</span>备案号</label>
+                            <div>
+                                <input type="text" class="form-control"  name="copyright" value="{$websiteData['copyright']}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">更新站点信息</button>
+                    <a class="btn btn-default" href="{:url('AdminWebsite/websiteSetting')}">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

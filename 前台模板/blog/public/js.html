@@ -1,0 +1,20 @@
+
+
+<!-- 前端frontend和bootstrap引入 -->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="__STATIC__/js/frontend.js"></script>
+<script>
+    $("#search-btn").click(function () {
+        var search = $("#search-input").val();
+        // alert(search);
+        window.location.href="/search/"+search;
+    })
+</script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+</body>
+</html>

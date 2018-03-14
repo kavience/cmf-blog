@@ -1,0 +1,148 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+body{
+	margin:0px;
+	padding:0px;
+	margin-bottom: 60px;
+}
+ @font-face {
+	font-family: 'HawaiiLover';
+	src: url('../font/HawaiiLover.ttf');
+}
+
+.website-name{
+	font-size:30px;
+	font-family:"HawaiiLover";
+}
+.dropdown-menu-custom{
+	background-color:#000;
+}
+
+.navbar-custom li a{
+	font-size:18px;
+	color:#9d9d9d;
+}
+.blog-list{
+	padding:0px;
+	margin-top:2.5rem;
+	margin-bottom:12rem;
+	font-size:1.5rem;
+}
+.blog-page-left{
+
+}
+.blog-list-title a{
+	color:#222;
+}
+.blog-list-tips span,.blog-list-tips a{
+	padding:0.2rem;
+	color:#9e9e9e;
+}
+.blog-list-introduce{
+	font-size:1.3rem;
+	margin:0.9rem auto;
+	text-indent:2.3rem;
+}
+.blog-list-readmore{
+	float:right;
+}
+.blog-list-comments{
+	margin-left:1.5rem;
+}
+.blog-page-widget{
+	width:75%;
+	height:auto;
+	margin:20px auto;
+}
+
+.blog-page-links-a{
+	margin:0.5rem;
+}
+.blog-page-order-article a{
+	display:block;
+	margin:0.5rem;
+}
+.blog-page-ad-img{
+
+}
+.blog-widget-scroll{
+	overflow-y:scroll;
+	height:15rem;
+}
+.blog-widget-scroll div{
+	border:0.05rem solid #ccc;
+	background-color:#757575;
+	padding:0.5rem;
+	margin:0.5rem;
+	font-size:2rem;
+	text-align:center;
+}
+.blog-widget-scroll a{
+	color:#333;
+}
+
+.blog-bottom{
+	background-color:#111;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	padding:1.5rem;
+	font-size:1.5rem;
+}
+.blog-bottom a{
+	color:#444;
+}
+.blog-bottom .blog-copyright,.blog-bottom .blog-theme,.blog-bottom .blog-record{
+	text-align:center;
+	margin-bottom:0.5rem;
+}
+.fa-fire-color{
+	color:#ff0000;
+}
+
+
+
+
+
+
+@media only screen and (min-width: 1024px){
+	.header{
+		background-image: url(http://kavience.oss-cn-hangzhou.aliyuncs.com/1.jpg);
+		background-size:cover;
+		height:637px;
+	}
+	.webtitle-name{
+		margin-top:318px;
+		font-size:10rem;
+		font-family:"HawaiiLover";
+	}
+	.subtitle-name{
+		margin-top:10px;
+		font-family:"HawaiiLover";
+		font-size:4rem;
+	}
+}
+@media only screen and (min-width: 767px) and (max-width: 1023px){
+	.header{
+		background-image: url(http://kavience.oss-cn-hangzhou.aliyuncs.com/1.jpg);
+		background-size:cover;
+		height:500px;
+	}
+}
+@media only screen and (min-width: 420px) and (max-width: 766px){
+	.header{
+		background-image: url(http://kavience.oss-cn-hangzhou.aliyuncs.com/1.jpg);
+		background-size:cover;
+		height:420px;
+	}
+}
+@media only screen and (max-width: 420px) {
+.header{
+	background-image: url(http://kavience.oss-cn-hangzhou.aliyuncs.com/1.jpg);
+	background-size:cover;
+	height:260px;
+	}
+}
+

@@ -1,0 +1,44 @@
+<include file="public@header" />
+<link rel="stylesheet" href="__TMPL__/blog/static/css/blog.css">
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="javascript:;">广告管理</a></li>
+        <li><a href="{:url('AdminAd/add')}">添加广告</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form">
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">排序</th>
+                <th width="50">ID</th>
+                <th>广告名称</th>
+                <th width="180">链接</th>
+                <th>广告缩略图</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+                <eq name="hasInfo" value="1">
+                    <volist name="ads" id="vo">
+                        <tr>
+                            <td>{$vo['list_order']}</td>
+                            <td>{$vo['id']}</td>
+                            <td>{$vo['name']}</td>
+                            <td>{$vo['link']}</td>
+                            <td><img src="__ROOT__/upload/{$vo['img_link']}" alt="" style="height: 100px;width: 100px;"></td>
+                            <td>
+                                <a data-toggle="tooltip" title="编辑"  href="{:url('AdminAd/edit')}?id={$vo['id']}"><i class="fa fa-edit fa-2x" ></i></a>
+                                <a data-toggle="tooltip" title="删除" class="js-ajax-delete"  href="{:url('AdminAd/del')}?id={$vo['id']}" data-msg="将删除此广告!"><i class="fa fa-trash-o fa-2x"></i></a>
+                            </td>
+                    </volist>
+                    <div class="pagination">{$ads->render()}</div>
+                </eq>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

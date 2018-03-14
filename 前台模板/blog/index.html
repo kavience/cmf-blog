@@ -1,0 +1,52 @@
+<extend name="public/base" />
+
+<block name="main">
+
+    <!-- 页面左侧 -->
+    <article class="blog-page-left col-xs-12 col-sm-6 col-md-8">
+      <eq name="hasInfo" value="0">
+        <h2 align="center">很抱歉...没有找到文章！</h2>
+        <else/>
+
+        <volist name='articles' id='article'>
+          <table class="table table-bordered">
+            <tr>
+              <td>
+                <h3 class="blog-list-title"><a href="/detail/{$article.id}">{$article.title}</a></h3>
+                <div class="blog-list-tips">
+                  <span>In</span><span class="blog-list-cat"><a href="/cat_id/{$article.category_id}">{$article.category_name}</a></span>
+                  <span class="blog-list-time">{$article.create_time}</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="blog-list-introduce">{$article.introduce}
+                </div>
+                <a class="btn btn-primary blog-list-readmore" href="/detail/{$article.id}">阅读原文→</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="blog-list-read">阅读量：</span>
+                <span>{$article.read_times}</span>
+                <span class="blog-list-comments">评论数：</span><span>{$article.comment_nums}</span>
+              </td>
+            </tr>
+          </table>
+        </volist>
+
+
+        <div class="pagination">{$articles->render()}</div>
+      </eq>
+
+    </article>
+
+</block>
+
+<block name="js">
+  <!--放置js代码-->
+  <script>
+
+  </script>
+</block>

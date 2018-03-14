@@ -1,0 +1,40 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminNav/navsetting')}">导航管理</a></li>
+        <li><a href="{:url('AdminNav/add')}">添加导航</a></li>
+        <li class="active"><a href="javascript:;">修改导航</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-6">
+            <form id="blog-nav-form" class="js-ajax-form" action="{:url('AdminNav/editPost')}" method="post">
+                <input type="hidden" name="id" value="{$nav['id']}">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+                        <div class="form-group">
+                            <label for="input-name"><span class="form-required">*</span>导航名称</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-name" name="name" value="{$nav['name']}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-name"><span class="form-required">*</span>排序值</label>
+                            <div>
+                                <input type="text" class="form-control"  name="list_order" value="{$nav['list_order']}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">修改</button>
+                    <a class="btn btn-default" href="{:url('AdminNav/navsetting')}">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

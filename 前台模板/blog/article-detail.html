@@ -1,0 +1,72 @@
+<extend name="public/base" />
+
+<block name="main">
+
+        <!-- 页面左侧 -->
+        <article class="blog-page-left col-xs-12 col-sm-6 col-md-8">
+            <eq name="hasInfo" value="0">
+                <h2 align="center">抱歉...该文章不存在</h2>
+                <else/>
+                <header class="blog-article-title">
+                    <h2>{$articleInfo['title']}</h2>
+                    <span>{$articleInfo['create_time']}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span>阅读量：{$articleInfo['read_times']} &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span>评论数：{$articleInfo['comment_nums']} &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </header>
+
+                <section class="blog-article-detail">
+                    {$articleInfo['content']|htmlspecialchars_decode}
+                </section>
+
+                <div>
+                    <h2>评论</h2>
+                </div>
+
+                <eq name="hasComments" value="1">
+                <section class="blog-article-comments">
+                    <volist name="comments" id="comment">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="article-comment-name">{$i}、{$comment['nickname']}：</span><span class="article-comment-date">{$comment['create_time']}</span>
+                                </div>
+                                <div>
+                                    <p class="article-comment-content">{$comment['content']}</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    </volist>
+
+                    <div class="pagination">{$comments->render()}</div>
+                </section>
+            </eq>
+                <div class="article-send-comment">
+                    <form id="comment_form" action="{:url('Comment/doPostComment')}" method="post" class="js-ajax-form">
+                        <input type="hidden" name="articleId" value="{$articleInfo.id}">
+                        <h5>*评论内容：</h5>
+                        <textarea name="content" id="comment" rows="4">
+
+                </textarea>
+                        <h5>*昵称：</h5>
+                        <input type="text" name="nickname" class="article-comment-input">
+                        <h5>联系邮箱：</h5>
+                        <input type="text" name="email" class="article-comment-input">
+                        <div>
+                        <span class="h5">*输入验证码：</span>
+                        <captcha height="40" width="200" font-size="20" length="4" />
+                        </div>
+                        <input type="text" name="verify" placeholder="请输入验证码">
+                        <button type="submit" class="btn btn-primary comment-now js-ajax-submit" >立即评论</button>
+                    </form>
+                </div>
+            </eq>
+        </article>
+
+
+</block>
+
+<block name="js">
+    <!--放置js代码-->
+</block>

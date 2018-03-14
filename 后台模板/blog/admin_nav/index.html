@@ -1,0 +1,61 @@
+<include file="public@header" />
+<link rel="stylesheet" href="__TMPL__/blog/static/css/blog.css">
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('AdminNav/navSetting')}">导航管理</a></li>
+        <li><a href="{:url('AdminNav/add')}">添加导航</a></li>
+    </ul>
+    <form method="post" class="js-ajax-form" action="{:url('AdminNav/listOrder')}">
+        <div class="table-actions">
+            <span class="blog-admin-tip">*导航只分一级导航和二级导航</span>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">排序</th>
+                <th width="50">ID</th>
+                <th>导航名称</th>
+                <th width="180">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+                <eq name="hasNavs" value="1">
+                    <volist name="Navs" id="Nav">
+                        <tr>
+                            <td>{$Nav['list_order']}</td>
+                            <td>{$Nav['id']}</td>
+                            <td>{$Nav['name']}</td>
+                            <td>
+                                <a href="{:url('AdminNav/add')}?pid={$Nav['id']}">添加子导航 /</a>
+                                <a href="{:url('AdminNav/edit')}?id={$Nav['id']}"> 编辑 /</a>
+                                <a class="js-ajax-delete" data-msg="将删除所有子导航但不删除文章!" href="{:url('AdminNav/del')}?id={$Nav['id']}">删除</a>
+
+                        </tr>
+                        <if condition="($Nav['hasSon']=='true')">
+
+                            <volist name="Nav['son']" id="vo">
+                                <tr>
+                                    <td>{$vo['list_order']}</td>
+                                    <td>{$vo['id']}</td>
+                                    <td>├─{$vo['name']}</td>
+                                    <td>
+                                        <a href="{:url('AdminNav/edit')}?id={$vo['id']}">编辑 /</a>
+                                        <a class="js-ajax-delete" href="{:url('AdminNav/del')}?id={$vo['id']}" data-msg="将删除此导航但不删除文章!">删除</a>
+                                    </td>
+                                </tr>
+                            </volist>
+
+                        <else />
+
+                        </if>
+                    </volist>
+                </eq>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
